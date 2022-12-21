@@ -30,7 +30,7 @@ else:
 player = "Player Two's Turn"
 conn = playerConn[1]
 print(player)
-9
+
 send_common_msg(player)
 try:
 conn.send("Input".encode())
@@ -67,7 +67,7 @@ def check_diagonals():
 # print("Checking diagonals")
 result = 0
 if matrix[0][0] == matrix[1][1] and matrix[1][1] == matrix[2][2]:
-10
+
 result = matrix[0][0]
 elif matrix[0][2] == matrix[1][1] and matrix[1][1] == matrix[2][0]:
 result = matrix[0][2]
@@ -102,7 +102,7 @@ conn.send(msg.encode())
 playerConn.append(conn)
 playerAddr.append(addr)
 print("Player {} - [{}:{}]".format(i + 1, addr[0], str(addr[1])))
-11
+
 start_game()
 s.close()
 except socket.error as e:
@@ -138,6 +138,6 @@ conn.close()
 def send_common_msg(text):
 playerConn[0].send(text.encode())
 playerConn[1].send(text.encode())
-12
+
 time.sleep(1)
 start_server()
